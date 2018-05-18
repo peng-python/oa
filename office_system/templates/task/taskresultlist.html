@@ -1,0 +1,50 @@
+﻿{#任务结果列表#}
+{% extends 'task/task_base.html' %}
+
+{% block content %}
+<div class="mian_b1">
+ 
+ 
+{#<p class="mian_b1_sousuo"><input name="" type="text"></p>#}
+{#<a href="#" title="搜索"><p class="mian_b1_a3"></a>#}
+<a href="#" title="最后"><p class="mian_b1_a4"></a>
+<a href="#" title="下一页"><p class="mian_b1_a5"></a>
+<p class="mian_b1_list">1 2 3 4……</p>
+<a href="#" title="上一页"><p class="mian_b1_a6"></a>
+<a href="#" title="最前"><p class="mian_b1_a7"></a>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg">
+<tr>
+<td width="20%" class="mian_b_bg_lm"><span></span>标题</td>
+<td width="12%" class="mian_b_bg_lm"><span></span>处理时间</td>
+<td width="12%" class="mian_b_bg_lm"><span></span>执行人员</td>
+<td width="8%" class="mian_b_bg_lm"><span></span>状态</td>
+<td width="8%" class="mian_b_bg_lm"><span></span>紧急程度</td>
+<td colspan="2" class="mian_b_bg_lm"><span></span>操作</td>
+</tr>
+    {% for task in tasks %}
+<tr>
+<td>{{ task.title }}</td>
+<td>{{ task.time }}</td>
+<td>{{ task.task_man.nick_name }}</td>
+<td>{% if task.state == 'accept' %}已接受,正在进行中...{% elif task.state == 'done' %}已完成
+{% elif task.state == 'not' %}未完成{% endif %}
+</td>
+<td>{% if task.urgent == 'ordinary' %}普通{% elif task.urgent == 'worry' %}紧急
+{% elif task.urgent == 'must' %}非常紧急{% endif %}
+</td>
+ 
+<td width="8%" class="mian_b_icon_02"><a href="{% url 'task:task_up' task.id %}">成果提交</a></td>
+<td width="8%" class="mian_b_icon_02"><a href="{% url 'task:task_done' task.id %}">查看</a></td>
+</tr>
+    {% endfor %}
+<tr>
+<td width="20%" class="mian_b_bg_lm"><span></span>标题</td>
+<td width="12%" class="mian_b_bg_lm"><span></span>处理时间</td>
+<td width="12%" class="mian_b_bg_lm"><span></span>执行人员</td>
+<td width="8%" class="mian_b_bg_lm"><span></span>状态</td>
+<td width="8%" class="mian_b_bg_lm"><span></span>紧急程度</td>
+<td colspan="2" class="mian_b_bg_lm"><span></span>操作</td>
+</tr>
+</table>
+{% endblock content %}

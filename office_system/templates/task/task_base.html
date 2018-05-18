@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题页</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+<body class="mian_bj">
+<div class="mian_top_01">
+<div class="mian_top_r"></div>
+<div class="mian_top_l"></div>
+<div class="mian_top_c">
+<ul>
+<li><a href="{% url 'task:task_list' %}"><p>任务列表</p></a></li>
+{#<li><a href="{% url 'task:task_delaylist' %}"><p>任务延期申请</p></a></li>#}
+<li><a href="{% url 'task:result_list' %}"><p>任务成果提交</p></a></li>
+{#<li><a href="IssuedTask.html"><p>任务下发查看</p></a></li>#}
+{#<li><a href="DelayTaskApply.html"><p>任务延期申请</p></a></li>#}
+{#<li><a href="DelayTask.html"><p>任务延期审批</p></a></li>#}
+{#<li><a href="MoveTaskApply.html"><p>任务转移</p></a></li>#}
+{#<li><a href="MoveTask.html"><p>任务转移审核</p></a></li>#}
+{#<li><a href="TaskResult.html"><p>任务成果提交</p></a></li>#}
+</ul>
+</div>
+<div class="mian_b">
+
+    {% block content %}
+    {% endblock content %}
+</div>
+</div>
+</body>
+</html>
+<script src="/common.js"></script>

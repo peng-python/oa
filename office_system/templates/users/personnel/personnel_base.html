@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题页</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    {% block headjs %}{% endblock headjs %}
+</head>
+<body class="mian_bj">
+<div class="mian_top_01">
+<div class="mian_top_r"></div>
+<div class="mian_top_l"></div>
+<div class="mian_top_c">
+<ul>
+<li><a href="{% url 'users:user_personnel' %}">
+<p>
+人员信息</p>
+</a></li>
+<li><a href="{% url 'operation:apply' %}">
+<p>
+事件申请</p>
+</a>
+{#</li>#}
+{#<li><a href="RSEventApply.html">#}
+{#<p>#}
+{#职位调整申请</p>#}
+{#</a></li>#}
+{#<li><a href="RSEventApply.html">#}
+{#<p>#}
+{#离职申请</p>#}
+{#</a></li>#}
+{#<li><a href="RSEventApply.html">#}
+{#<p>#}
+{#培训申请</p>#}
+{#</a></li>#}
+{#<li><a href="ExaAppdocument.html">#}
+{#<p>#}
+{#公文审批</p>#}
+{#</a>#}
+</li>
+</ul>
+</div>
+<div class="mian_b">
+{% block content %}
+
+
+
+{% endblock content %}
+</div>
+</body>
+</html>
+<script src="/common.js"></script>

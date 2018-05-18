@@ -1,0 +1,46 @@
+﻿{#查看审批#}
+{% extends 'users/personnel/personnel_base.html' %}
+
+{% block content %}
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr>
+<td width="5%" class="mian_b_bg_lm">&nbsp;</td>
+<td colspan="3" class="mian_b_bg_lm">普通申请详细</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">标题：</td>
+<td width="60%">
+{{ application.title }} </td>
+<td width="30%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">申请时间：</td>
+<td width="60%">
+{{ application.add_time }}</td>
+<td width="30%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">申请人：</td>
+<td width="60%">
+{{ application.nick_name.nick_name }}</td>
+<td width="30%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">内容：</td>
+<td width="60%">
+{{ application.content }} </td>
+<td width="30%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<div align="center"><img src="/static/images/bnt_05.gif" alt="" width="80" height="22" onclick="javascript:window.history.go(-1);"></div></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+{% endblock content %}

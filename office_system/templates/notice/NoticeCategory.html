@@ -1,0 +1,86 @@
+﻿{#公告分类#}
+{% extends 'notice/notice_base.html' %}
+
+{% block content %}
+{#<div class="mian_b1">#}
+{#<a href="AddNoticeClass.html" title="添加">#}
+{#<p class="mian_b1_a1">#}
+{#</p>#}
+{#</a><a href="#" title="删除">#}
+{#<p class="mian_b1_a2">#}
+{#</p>#}
+{#</a>#}
+{#<p class="mian_b1_sousuo">#}
+{#<input name="" type="text"></p>#}
+{#<a href="#" title="搜索">#}
+{#<p class="mian_b1_a3">#}
+{#</p>#}
+{#</a><a href="#" title="最后">#}
+{#<p class="mian_b1_a4">#}
+{#</p>#}
+{#</a><a href="#" title="下一页">#}
+{#<p class="mian_b1_a5">#}
+{#</p>#}
+{#</a>#}
+{#<p class="mian_b1_list">#}
+{#1 2 3 4……</p>#}
+{#<a href="#" title="上一页">#}
+{#<p class="mian_b1_a6">#}
+{#</p>#}
+{#</a><a href="#" title="最前">#}
+{#<p class="mian_b1_a7">#}
+{#</p>#}
+{#</a>#}
+{#</div>#}
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg">
+<tr>
+<td width="3%" class="mian_b_bg_lm">
+<input name="" type="checkbox" value="">&nbsp;&nbsp;
+</td>
+<td width="15%" class="mian_b_bg_lm">
+<span></span>类别名称
+</td>
+<td width="35%" class="mian_b_bg_lm">
+<span></span>类别备注
+</td>
+<td colspan="2" class="mian_b_bg_lm">
+<span></span>
+</td>
+</tr>
+
+    {% for category in categorys %}
+<tr>
+<td>
+<input name="" type="checkbox" value="">&nbsp;
+</td>
+<td>
+{{ category.name }}
+</td>
+<td>
+{{ category.subject }}
+</td>
+{#<td width="8%" class="mian_b_icon_01">#}
+{#<a href="AddNoticeClass.html">编辑</a>#}
+{#</td>#}
+{#<td width="8%" class="mian_b_icon_02">#}
+{#<a href="NoticeClassDetail.html">查看</a>#}
+{#</td>#}
+</tr>
+    {% endfor %}
+
+<tr>
+<td width="3%" class="mian_b_bg_lm">
+&nbsp;&nbsp;
+</td>
+<td width="15%" class="mian_b_bg_lm">
+<span></span>类别名称
+</td>
+<td width="35%" class="mian_b_bg_lm">
+<span></span>类别备注
+</td>
+<td colspan="2" class="mian_b_bg_lm">
+<span></span>
+</td>
+</tr>
+</table>
+{% endblock content %}

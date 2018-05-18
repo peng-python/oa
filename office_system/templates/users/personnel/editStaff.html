@@ -1,0 +1,277 @@
+﻿{#编辑员工信息#}
+{% extends 'users/personnel/personnel_base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'users:user_editstaff' user.id %}">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr>
+<td width="5%" class="mian_b_bg_lm">&nbsp;
+
+</td>
+<td colspan="4" class="mian_b_bg_lm">
+编辑员工 {{ worker.user.nick_name }} 的信息
+</td>
+</tr>
+</table>
+<table width="100%" border="1" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr style="background-color: White; height: 30px">
+<td colspan="8">
+基本信息
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td style="width: 8%;" align="center">
+姓名
+</td>
+<td style="width: 8%" align="center">
+性别
+</td>
+<td style="width: 8%" align="center">
+出生年月
+</td>
+<td style="width: 8%" align="center">
+学历
+</td>
+<td style="width: 8%" align="center">
+专业
+</td>
+<td style="width: 8%" align="center">
+工作年限
+</td>
+<td style="width: 8%" align="center">
+政治面貌
+</td>
+<td style="width: 8%" rowspan="5" align="center" valign="middle">
+<img src="..\images\head_pic.png">
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td>
+<input id="Text1" type="text" name="Text1" style="border: 0px; width: 100px" value="{{ worker.user.nick_name }}">
+</td>
+<td>
+<select id="Select1" style="width: 80px">
+    {% if worker.user.gender == 'male' %}<option>男{% else %}<option>女{% endif %}
+</select>
+</td>
+<td>
+<input id="Text2" type="text" style="border: 0px; width: 100px" value="{{ worker.birthday }}">
+</td>
+<td>
+<input id="Text3" type="text" style="border: 0px; width: 100px" value="{% if worker.education == 'college' %}大专{% elif worker.education == 'undergraduate' %}本科
+    {% elif worker.education == 'graduate' %}研究生{% elif worker.education == 'doctor' %}{% endif %}">
+</td>
+<td>
+<input id="Text4" type="text" style="border: 0px; width: 100px" value="{{ worker.major }}">
+</td>
+<td>
+<input id="Text5" type="text" style="border: 0px; width: 100px" value="{{ worker.work_year }}">
+</td>
+<td>
+<input id="Text6" type="text" style="border: 0px; width: 100px" value="{% if worker.policital_status == 'party' %}党员{% elif worker.policital_status == 'masses' %}群众
+    {% elif worker.policital_status == 'other' %}其他{% endif %}">
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td>
+籍贯
+</td>
+<td colspan="2">
+手机
+</td>
+<td colspan="3">
+邮箱
+</td>
+<td>
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td>
+<input id="Text11" type="text" style="border: 0px; width: 100px" value="{{ worker.native_place }}">
+</td>
+<td colspan="2">
+<input id="Text12" type="text" style="border: 0px; width: 200px" value="{{ worker.user.mobile }}">
+</td>
+<td colspan="3">
+<input id="Text13" type="text" style="border: 0px; width: 300px" value="{{ worker.user.email }}">
+</td>
+<td>
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td>
+家庭住址：
+</td>
+<td colspan="4">
+<input id="Text7" type="text" style="border: 0px; width: 300px" value="{{ worker.home_address }}">
+</td>
+<td>
+邮编：
+</td>
+<td>
+<input id="Text8" type="text" style="border: 0px; width: 100px" value="">
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td>
+户口所在地：
+</td>
+<td colspan="4">
+<input id="Text9" type="text" style="border: 0px; width: 300px" value="{{ worker.permanent_address }}">
+</td>
+<td>
+邮编：
+</td>
+<td>
+<input id="Text10" type="text" style="border: 0px; width: 100px" value="">
+</td>
+<td align="center">
+上传照片
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td colspan="8">
+
+</td>
+<tr style="background-color: White; height: 30px">
+
+<td colspan="8">
+职位信息
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center">
+部门
+</td>
+<td align="center">
+职位
+</td>
+<td align="center">
+&nbsp;工号</td>
+<td align="center">
+&nbsp;入职时间</td>
+<td align="center">
+&nbsp;工作年限</td>
+<td align="center">
+&nbsp;座机号码</td>
+<td align="center">
+公司邮箱</td>
+<td align="center" valign="middle">
+备注
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center">
+<select>
+<option>{{ worker.division.name }}
+</select>
+</td>
+<td align="center">&nbsp;
+<input id="Text15" type="text" style="border: 0px; width: 150px" value="{{ worker.position }}">
+</td>
+<td align="center">
+0001</td>
+<td align="center">&nbsp;
+<input id="Text16" type="text" style="border: 0px; width: 100px" value="{{ worker.entry_time }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text17" type="text" style="border: 0px; width: 100px" value="{{ worker.entry_year }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text18" type="text" style="border: 0px; width: 100px" value="{{ worker.telephone }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text19" type="text" style="border: 0px; width: 100px" value="{{ worker.email }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text20" type="text" style="border: 0px; width: 100px" value="{{ worker.remarks }}">
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td colspan="8">
+薪资结构
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center" rowspan="2">
+基本工资
+</td>
+<td align="center" rowspan="2">
+岗位工资
+</td>
+<td align="center" rowspan="2">
+绩效奖金
+</td>
+<td align="center" rowspan="2">
+四金
+</td>
+<td align="center" colspan="3">
+福利补贴
+</td>
+<td align="center" rowspan="2">
+合计
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center">
+通讯费
+</td>
+<td align="center">
+车费
+</td>
+<td align="center">
+午餐费
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center">&nbsp;
+<input id="Text21" type="text" style="border: 0px; width: 100px" value="{{ worker.base_pay }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text22" type="text" style="border: 0px; width: 100px" value="{{ worker.post_wage }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text23" type="text" style="border: 0px; width: 100px" value="{{ worker.bonus }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text24" type="text" style="border: 0px; width: 100px" value="{{ worker.benefits }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text25" type="text" style="border: 0px; width: 100px" value="{{ worker.mobile_fee }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text26" type="text" style="border: 0px; width: 100px" value="{{ worker.car_fee }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text27" type="text" style="border: 0px; width: 100px" value="{{ worker.lunch_fee }}">
+</td>
+<td align="center">&nbsp;
+<input id="Text28" type="text" style="border: 0px; width: 100px" value="">
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td colspan="8">
+
+</td>
+</tr>
+
+<tr style="background-color: White; height: 30px">
+<td style="text-align: left" colspan="7">
+填表日期
+</td>
+<td align="center">
+{#<input id="Text14" type="text" style="border: 0px; width: 100px" value="{{ worker.add_time }}">#}
+    {{ worker.add_time }}
+</td>
+</tr>
+<tr style="background-color: White; height: 30px">
+<td align="center" colspan="8">
+{#<a href="Employlee.html">#}
+    <input type="submit" value="提交">
+{#<img src="/static/images/bnt_03.gif" style="margin-right: 10px;" width="80" height="22"></a><a href="Employlee.html"><img src="/static/images/bnt_05.gif" alt="" width="80" height="22"></a>#}
+</td>
+</tr>
+</table>
+{% csrf_token %}
+</form>
+{% endblock content %}

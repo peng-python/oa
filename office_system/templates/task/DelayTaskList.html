@@ -1,0 +1,55 @@
+﻿{#延迟任务申请列表#}
+{% extends 'task/task_base.html' %}
+{% block content %}
+    <div class="mian_b1">
+
+    <a href="{% url 'task:task_adddelay' %}" title="添加">
+        <p class="mian_b1_a1"></p>
+    </a>
+
+<a href="#" title="删除"><p class="mian_b1_a2"></a>
+<p class="mian_b1_sousuo"><input name="" type="text"></p>
+<a href="#" title="搜索"><p class="mian_b1_a3"></a>
+<a href="#" title="最后"><p class="mian_b1_a4"></a>
+<a href="#" title="下一页"><p class="mian_b1_a5"></a>
+<p class="mian_b1_list">1 2 3 4……</p>
+<a href="#" title="上一页"><p class="mian_b1_a6"></a>
+<a href="#" title="最前"><p class="mian_b1_a7"></a>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg">
+<tr>
+<td width="3%" class="mian_b_bg_lm"><input name="" type="checkbox" value="">&nbsp;</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>任务名称</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>延期到(日期)</td>
+<td width="25%" class="mian_b_bg_lm"><span></span>申请原因</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>批复状态</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>申请人</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>批复人</td>
+<td colspan="2" class="mian_b_bg_lm"><span></span>操作</td>
+</tr>
+    {% for apply_task in apply_tasks %}
+<tr>
+<td><input name="" type="checkbox" value="">&nbsp;</td>
+<td>{{ apply_task.task.title }}</td>
+<td>{{ apply_task.time }}</td>
+<td>{{ apply_task.cause }}</td>
+<td>{% if apply_task.state == 'agree' %}同意{% elif apply_task.state == 'not' %}不同意
+{% elif apply_task.state == 'submit' %}已提交{% endif %}</td>
+<td>{{ apply_task.task.task_man.nick_name }}</td>
+<td>{{ apply_task.leader.nick_name }}</td>
+<td width="8%" class="mian_b_icon_01"><a href="AdddelayTask.html">编辑</a></td>
+<td width="8%" class="mian_b_icon_02"><a href="{% url 'task:task_delaydetail' apply_task.id %}">查看</a></td>
+</tr>
+    {% endfor %}
+<tr>
+<td width="3%" class="mian_b_bg_lm">&nbsp;</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>申请人</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>延期到(日期)</td>
+<td width="25%" class="mian_b_bg_lm"><span></span>申请原因</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>批复状态</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>批复时间</td>
+<td width="10%" class="mian_b_bg_lm"><span></span>批复人</td>
+<td colspan="2" class="mian_b_bg_lm"><span></span>操作</td>
+</tr>
+</table>
+{% endblock content %}

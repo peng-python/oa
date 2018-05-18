@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>无标题页</title>
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+<body class="mian_bj">
+<div class="mian_top_01">
+<div class="mian_top_r">
+</div>
+<div class="mian_top_l">
+</div>
+<div class="mian_top_c">
+<ul>
+<li><a href="{% url 'notice:notice_category' %}">
+<p>
+公告类别</p>
+</a></li>
+<li><a href="{% url 'notice:notice_list' %}">
+<p>
+公告查看</p>
+</a></li>
+{#<li><a href="NoticeCount.html">#}
+{#<p>#}
+{#公告统计</p>#}
+{#</a></li>#}
+{#<li><a href="NoticeShow.html">#}
+{#<p>#}
+{#公告查看</p>#}
+{#</a></li>#}
+</ul>
+</div>
+
+<div class="mian_b">
+
+    {% block content %}
+    {% endblock content %}
+
+</div>
+</div>
+</body>
+</html>
+<script src="/common.js"></script>

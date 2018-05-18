@@ -1,0 +1,55 @@
+﻿{#添加延期申请页面#}
+{% extends 'task/task_base.html' %}
+
+{% block content %}
+<div class="mian_b">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr>
+
+<td width="5%" class="mian_b_bg_lm">&nbsp;</td>
+<td colspan="3" class="mian_b_bg_lm">申请延期</td>
+</tr>
+
+    <form method="post" action="{% url 'task:task_adddelay' %}">
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">延期到：</td>
+<td width="60%">
+<input type="text" class="input_01" name="textfield1" id="textfield"> </td>
+
+<td width="25%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">申请任务名称：</td>
+<td>
+{#{{ request.user.nick_name }}#}
+    <input type="text" class="input_01" name="textfield2" id="textfield">
+
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">申请原因：</td>
+
+<td>
+<input type="text" class="input_01" name="textfield3" id="textfield">
+</td>
+
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<div align="center">
+    <input type="submit" value="提交">
+{#    <a href="DelayTaskApply.html"><img src="/static/images/bnt_05.gif" alt="" width="80" height="22"></a></div></td>#}
+<td>&nbsp;</td>
+</tr>
+        {% csrf_token %}
+    </form>
+</table>
+</div>
+{% endblock content %}

@@ -1,0 +1,112 @@
+﻿{#提交任务以及文件页面#}
+{% extends 'task/task_base.html' %}
+
+{% block content %}
+<div class="mian_b">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr>
+<td width="5%" class="mian_b_bg_lm">&nbsp;</td>
+<td colspan="3" class="mian_b_bg_lm">任务成果提交</td>
+</tr>
+ <form method="post" action="" enctype="multipart/form-data">
+<tr>
+<td>&nbsp;</td>
+<td width="10%" valign="top">任务标题：</td>
+<td width="60%">
+双方的房贷首付多少 </td>
+<td width="30%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">紧急程度：</td>
+<td>
+紧急
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">任务处理时间：</td>
+<td>
+2012-3-14-2012-3-16
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">创建时间：</td>
+<td>
+2012-3-12
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">执行人员：</td>
+<td>
+吴菲菲
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">任务状态：</td>
+<td valign="top">
+完成
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="tr_002">
+<td>&nbsp;</td>
+<td valign="top">任务内容：</td>
+<td>
+发生大幅度释放速度
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="tr_003">
+<td>&nbsp;</td>
+<td valign="center">工作成果描述：</td>
+<td valign="bottom">
+<br>
+<img src="../images/123.png">
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top">工作成果上传：</td>
+<td>
+继续添加附件.....</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td valign="top"></td>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="mian_b_bg_xz">
+<tr>
+<td width="30%">
+    <input id="File1" type="file" name="file1">
+</td>
+<td><img src="..\images\bnt_07.gif"></td>
+</tr>
+</table>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<div align="center">
+{#    <a href="TaskResult.html"><img src="..\images\bnt_03.gif" style="margin-right:10px;" width="80" height="22"></a>#}
+    <input type="submit" value="提交">
+    <img src="..\images\bnt_05.gif" alt="" width="80" height="22" onclick="javascript:history.go(-1);"></div></td>
+<td>&nbsp;</td>
+</tr>
+     {% csrf_token %}
+ </form>
+</table>
+</div>
+{% endblock content %}
